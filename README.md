@@ -10,12 +10,11 @@ You can install the package from this github repository
 
 ```r
 install.packages('devtools')
-devtools::install_github('scentorrino/KMNPRY.2021')
+devtools::install_github('scentorrino/KMNPRY.2021',build_vignettes=FALSE)
 ```
 
-If you wish a fast install without the building of
-vignettes (or if you do not have TeX installed on your system), add
-the option build_vignettes=FALSE to the devtools::install_github() call.
+The vignette is computationally intensive at this stage. If you wish to run the vignette, change
+the option build_vignettes to TRUE in the devtools::install_github() call.
 
 ## See the vignette and the code 
 
@@ -25,4 +24,13 @@ To check the main vignette coming with the package, you can type
 vignette("kmnpry_2021_replication", package = "KMNPRY.2021")
 ```
 
-If you wish to extract the R code used to produce the vignette
+If you wish to extract the R code used to produce the vignette, you can run the following
+
+```r
+library("knitr")
+vigSrc <- list.files(pattern = "Rmd$",
+                    system.file("doc", package = "KMNPRY.2021"),
+                    full.names = TRUE)
+purl(vigSrc)
+```
+or directly copy/paste the .R file from Github to your local machine. 

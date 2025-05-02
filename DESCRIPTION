@@ -1,0 +1,20 @@
+Package: KMNPRY.2021
+Title: Replicating the Empirical Results of Kahn et al. (2021, Energy Economics)
+Version: 1.0.0
+Authors@R: 
+    person("Samuele", "Centorrino", , "scentorrino@proton.me", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-8713-7197"))
+Description: This package provides functions and tools to replicate the results in the paper by Matthew E. Kahn, Kamiar Mohaddes, Ryan N.C. Ng, M. Hashem Pesaran, Mehdi Raissi, and Jui-Chung Yang, ``Long-term macroeconomic effects of climate change: A cross-country analysis", Energy Economics, Vol. 104 (2021), https://www.sciencedirect.com/science/article/pii/S0140988321004898.
+License: `use_gpl3_license()`
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+Depends: 
+    R (>= 2.10)
+Imports:
+    plm,MASS,numbers,GCCfactor
+LazyData: true
+VignetteBuilder: knitr
+Suggests: 
+    knitr,
+    rmarkdown

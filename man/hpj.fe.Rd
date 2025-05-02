@@ -20,7 +20,7 @@ Default is "within".}
 }
 \value{
 A list containing coefficients, standard errors, fitted values, residuals,
-variance-covariance matrix, and the dataset used.
+variance-covariance matrix, and the data set used.
 }
 \description{
 A function to perform half-panel jacknife estimation of ARDL panel data models

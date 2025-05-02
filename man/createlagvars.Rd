@@ -4,10 +4,12 @@
 \alias{createlagvars}
 \title{Create Lagged Variables}
 \usage{
-createlagvars(initdata, ma)
+createlagvars(initdata, ma = 30)
 }
 \arguments{
 \item{initdata}{A pdata.frame containing the data for which lagged variables will be created.}
+
+\item{ma}{Number of years for full adaptation. Default to 30.}
 }
 \value{
 A pdata.frame with additional lagged variables and aggregate world GDP.

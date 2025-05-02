@@ -7,7 +7,7 @@ output:
       base_format: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Climate Effects on GDP Growth}
-  %\VignetteEngine{quarto::html}
+  %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: ref.bib
 ---
@@ -22,18 +22,12 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-#| results: hide
-#| message: false
-#| warning: false
-#| echo: false
-
+```{r setup, echo=FALSE}
 library(MASS)
 library(plm)
 library(knitr)
 library(kableExtra)
 
-# Refresh package, just in case some functions have changed
 library(KMNPRY.2021)
 
 options("scipen"=100, "digits"=5)

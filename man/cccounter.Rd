@@ -4,7 +4,7 @@
 \alias{cccounter}
 \title{Generate Counterfactual Scenarios Based on Temperature Changes}
 \usage{
-cccounter(m, beta, sigma, N, psihat, vec.new.trend, vec.new.vol, H = 100)
+cccounter(m, beta, sigma, N, psihat, vec.new.trend, H = 100)
 }
 \arguments{
 \item{m}{An integer representing the number of past observations used in the calculation.}
@@ -17,11 +17,9 @@ cccounter(m, beta, sigma, N, psihat, vec.new.trend, vec.new.vol, H = 100)
 
 \item{psihat}{A numeric vector of psi coefficients.}
 
-\item{vec.new.trend}{A numeric vector representing new trends in temperature.}
-
-\item{vec.new.vol}{A numeric vector representing new volatilities in temperature.}
-
 \item{H}{An integer specifying the number of time periods for the counterfactual scenarios. Default is 100.}
+
+\item{delta.trend}{A scalar representing changes in temperature trends for each period.}
 }
 \value{
 A list containing:

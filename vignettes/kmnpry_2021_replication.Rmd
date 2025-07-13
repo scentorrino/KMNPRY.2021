@@ -6,7 +6,7 @@ output:
   bookdown::html_document2:
       base_format: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Climate Effects on GDP Growth}
+  %\VignetteIndexEntry{Climate Effects on GDP Growth (Kahn et al., 2021, Energy Economics)}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 bibliography: ref.bib
@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup, echo=FALSE}
+```{r setup, echo=FALSE, cache = FALSE}
 library(MASS)
 library(plm)
 library(knitr)
@@ -44,14 +44,14 @@ col.palette <- c('lightgrey','black','grey50')
 (\#eq:eq1kahn)
 \end{equation}
 
-where $i$ is a country, $t$ is time, $y_{i,s}$ is the logarithm of real GDP for country $i$ and time $s$, $\tilde{x}_{i,s}$ is a vector of regressors which include climate variables such as temperature and precipitations, taken in deviations from their historical averages^[A more detailed technical justification for this choice is given in Appendix A.1 of @kahn2021], $a_i$ is a country fixed effect, and finally $\Delta$ is used to denote first-differences. $\Delta y_{i,t}$ is thus equal to the growth rate of country $i$ at time $t$ which, for simplicity, we denote $r_{i,t}$. Thus, we rewrite
+where $i$ is a country, $t$ is time, $y_{i,s}$ is the logarithm of real GDP for country $i$ and time $s$, $\tilde{x}_{i,s}$ is a vector of regressors which include climate variables such as temperature and precipitations, taken in deviations from their historical averages^[A more detailed technical justification for this choice is given in Appendix A.1 of @kahn2021], $a_i$ is a country fixed effect, and finally $\Delta$ is used to denote first-differences. $\Delta y_{i,t}$ is thus equal to the growth rate of country $i$ at time $t$ which, for simplicity, I denote $r_{i,t}$. Thus,
 
 \begin{equation}
 r_{i,t} = a_i + \sum_{\ell = 1}^p \varphi_\ell r_{i,t-\ell} + \sum_{\ell = 0}^p \beta_\ell \Delta \tilde{x}_{i,t-\ell}(m) + \varepsilon_{i,t}. 
 (\#eq:eq1kahnr)
 \end{equation}
 
-The ARDL model in equation \@ref(eq:eq1kahnr) can be estimated ``as is". However, it is possible that the growth rate, $r_{i,t}$ and $\Delta \tilde{x}_{i,t-\ell}(m)$ are cointegrated (e.g., a long-run equilibrium relationships between these variables may exist), and therefore the authors of the paper estimate an **error correction version of this model** \citep[see][p. 526]{pesaran2015}. That is,
+The ARDL model in equation \@ref(eq:eq1kahnr) can be estimated ``as is". However, it is possible that the growth rate, $r_{i,t}$ and $\Delta \tilde{x}_{i,t-\ell}(m)$ are cointegrated (e.g., a long-run equilibrium relationships between these variables may exist), and therefore one can estimate an **error correction version of this model** \citep[see][p. 526]{pesaran2015}. That is,
 
 \begin{equation}
 \begin{aligned}
@@ -73,7 +73,7 @@ and $\Delta^2$ denotes the second order difference of $\tilde{x}$. In this formu
 
 ## Replication of Empirical Results {-#empres}
 
-We first show that using the model in equation \@ref(eq:errcorr), i.e. the error correction version of the model, is numerically equivalent to estimate directly the model in equation \@ref(eq:eq1kahnr), i.e., what I refer to as the *reduced-form* model. 
+I first show that using the model in equation \@ref(eq:errcorr), i.e. the error correction version of the model, is numerically equivalent to estimate directly the model in equation \@ref(eq:eq1kahnr), i.e., what I refer to as the *reduced-form* model. 
 
 Results are reported in Tables \@ref(tab:tab1kahn) and \@ref(tab:kahnreduced) for the half-panel jackknife fixed effect estimator (HPJ-FE) of @chudik2018. Notice that the values of the coefficients are numerically equivalent, but there is some discrepancy in the standard errors. This may due to the fact that Stata and R use different methods to compute standard errors.^[An in-depth discussion about this point is beyond the scope of this note. A simple search on the internet reveals the difficulties in replicating Stata standard errors into R] However, the values obtained are not too far apart and do not change the qualitative conclusions of the paper. 
 
@@ -227,9 +227,9 @@ knitr::kable(t(mymat),digits=4,align = c("l", rep("c", 9)), label = NA) |>
      kableExtra::kable_styling(font_size = 10) 
 ```
 
-We further proceed to obtain the expected losses in GPD by country for a given scenario about the expected evolution of temperatures around their historical mean. 
+I further proceed to obtain the expected losses in GPD by country for a given scenario about the expected evolution of temperatures around their historical mean. 
 
-To do so, we first rewrite equation \@ref(eq:eq1kahnr) in the following form
+To do so, I first rewrite equation \@ref(eq:eq1kahnr) in the following form
 
 \begin{equation}
 \varphi(L) r_{it} = a_i + \beta(L) \Delta x_{it}(m) + \varepsilon_{it}, 
@@ -249,7 +249,7 @@ where $\vartheta(L) = \sum_{\ell=0}^\infty \vartheta_\ell L^\ell$, and
 \[
 \psi(L) = \varphi(L)^{-1} \beta(L) = \sum_{\ell=0}^\infty \psi_\ell L^\ell.
 \]
-Obtaining an estimator of $\psi$ allows us to forecast the expected value of GDP growth $h$ periods ahead, for a given sequence of observed temperatures (in deviations from their historical mean) between $T$ and $T+h$. 
+Obtaining an estimator of $\psi$ allows us to forecast the expected value of GDP growth $h$ periods ahead, for a given sequence of observed temperatures (in absolute deviations from their historical mean) between $T$ and $T+h$. 
 
 ```{r eval=T,echo=F}
 #| label: fs_counterfactuals
@@ -322,7 +322,7 @@ where $b^0_{Ti}$ and $\sigma^0_{Ti}$ are the trend and the standard deviation of
 
 @kahn2021 consider the uncertainty coming from the estimation of $\psi$, and provide confidence intervals for these parameters. However, they do not provide forecast intervals for the expected loss in GDP. $\hat{\psi}$ is a nonlinear transformation of $\lbrace \hat{\varphi},\hat{\beta} \rbrace$, so that *standard* asymptotic confidence intervals based on asymptotic normality of the estimator are hard to derive in closed form. In order to obtain confidence intervals, I bootstrap the panel with respect to its cross sectional dimension using a dynamic wild bootstrap to allow for serial dependence between countries (@shao2010, and @gao2022). The first $20$ values of $\hat{\psi}$ with their $95\%$ confidence intervals are given in Figure \@ref(fig:fig5kahn), which mimics very closely Figure 5 in the original paper. 
 
-We present here an example with $m = 30$ about how to invoke the function to obtain $95\%$ bootstrap confidence intervals with $B = 499$ replications.
+I present here an example with $m = 30$ about how to invoke the function to obtain $95\%$ bootstrap confidence intervals with $B = 499$ replications.
 
 ```{r}
 #| label: bootstrap_coef
@@ -340,7 +340,6 @@ psihat975.ma30 <- apply(psihat.b.ma30$psihat,1,function(x) quantile(x,0.975))
 
 
 ```{r fig5kahn, fig.cap="$\\psi_j$ for $j = 0,1,2,\\dots,20$, and their bootstrapped $95\\%$ confidence intervals.", fig.dim = c(6, 5)}
-
 barCenters <- barplot(psihat.ma30[1:21],xlim = c(0,21),ylim = rev(c(-0.02,0.001)),col = "blue4",cex.axis = 0.5,legend = expression(psi[i]))
 segments(barCenters, psihat025.ma30[1:21], barCenters,
             psihat975.ma30[1:21], lwd = 2,col = "red4" )
@@ -351,43 +350,7 @@ arrows(barCenters, psihat025.ma30[1:21], barCenters,
 
 In Table \@ref(tab:tab6kahn), I report the expected loss of GDP growth (in percentage) for the two scenarios considered by @kahn2021. The $95\%$ confidence intervals are constructed via the bootstrapped values of $\hat{\psi}$.
 
-```{r figtempfnm, fig.cap = "Counterfactual scenarios for several values of $d_i$ and $m= \\lbrace 20,30,40,50 \\rbrace$.",fig.dim = c(6, 5)}
-
-m.vec <- seq(20,40,10)
-H     <- 85
-# Use q specific sequence of values for the change in trend
-d.vec <- seq(min(climate.data2014$di_rcp26),max(climate.data2014$di_rcp85),length.out = 50)
-
-b.med <- mean(climate.data2014$beta.Ti)
-s.med <- mean(climate.data2014$sigma.Ti)
-
-i <- 1
-delta.diff.med.1 <- matrix(0,3,50)
-for(jj in 1:50){
-  # M = 20
-  delta.diff.med.1[1,jj] <- cccounter(m.vec[1],b.med[i],s.med[i],1,psihat.ma20,d.vec[jj])$Delta[85]
-  # M = 30
-  delta.diff.med.1[2,jj] <- cccounter(m.vec[2],b.med[i],s.med[i],1,psihat.ma30,d.vec[jj])$Delta[85]
-  # M = 40
-  delta.diff.med.1[3,jj] <- cccounter(m.vec[3],b.med[i],s.med[i],1,psihat.ma40,d.vec[jj])$Delta[85]
-} 
-
-delta.diff.med.1 <- t(delta.diff.med.1)
-
-colnames(delta.diff.med.1) <- paste0("m = ",m.vec)
-nn <- 3
-layout(matrix(c(1,2),nrow=1), width=c(12,3)) 
-par(mar=c(5,4,4,0)) #No margin on the right side
-matplot(d.vec,delta.diff.med.1, type = "l",xlab = bquote(d[i]),ylab = bquote(Delta[h] ~ "(" ~ d[i]~")"),lwd = c(2,2,2),lty = c(1,1,1))
-par(mar=c(5,0,4,2)) #No margin on the left side
-plot(c(0,1),type="n", axes=F, xlab="", ylab="")
-legend("center", colnames(delta.diff.med.1),col=seq_len(nn),fill=seq_len(nn))
-``` 
-
-Figure \@ref(fig:figtempfnm) showcases the expected change in log GDP per capita as a function of the parameter $d_i$, and for $m= \lbrace 20,30,40 \rbrace$.
-
 ```{r tab6kahn, tab.cap= "Table 6 in @kahn2021 with $m = 30$.", echo = FALSE}
-
 ## REPRODUCE THE RESULTS FOR m = 30
 m  <- 30
 counter26 <- with(climate.data2014,cccounter(m,beta.Ti,sigma.Ti,dim(climate.data2014)[1],psihat.ma30,di_rcp26))
@@ -518,9 +481,106 @@ mytab <- rbind(c("World",rep("",3)),
                
 colnames(mytab) <- c("~","2030","2050","2100")
 
-knitr::kable(mytab,digits=3,align = c("l", rep("c", 9))) |>
+knitr::kable(mytab,digits=3,align = c("l", rep("c", 9)),label = NA) |>
     kableExtra::row_spec(c(1,4,9,14,19,24),bold=T,hline_after = T) |>
      kableExtra::kable_styling(font_size = 10) 
 ```
 
+
+## Heterogenous effects {-#heteffts}
+
+I finally replicate the results in Table 4 of @kahn2021, where they consider estimation of the model in \@ref(eq:eq1kahnr) with heterogenous coefficients and common correlated effects. In particular, they estimate the model
+
+\begin{equation}
+r_{i,t} = a_i + \varphi_{1,i} r_{i,t-\ell} + \sum_{\ell = 0}^p \beta_{\ell,i} \Delta \tilde{x}_{i,t-\ell}(m) + \omega_i r_{w,t-1} + \varepsilon_{i,t},
+(\#eq:eq1kahnrhet)
+\end{equation}
+with $i = 1,\dots,n$. In equation \@ref(eq:eq1kahnrhet), $p = 4$, and I only take one lag of GDP growth as explanatory variable to reduce the number of parameters; $r_{w,t-1}$ denotes the world GDP growth, and controls for common correlated effects among all countries. All coefficients are taken to be heterogeneous across countries. This model is estimated by OLS country-by-country. The mean-group estimator of the long-run effect of temperature on GDP growth is defined as
+
+\begin{equation}
+\hat{\theta}_{MG} = \frac{\sum_{\ell = 1}^p \frac{1}{n} \sum_{i = 1}^n \hat{\beta}_{\ell,i}}{1 - \frac{1}{n}\sum_{i = 1}^n \hat{\varphi}_{1,i}}.
+\end{equation}
+
+It is known that this estimator can be biased for small values of T, so the authors follow @chudik2018, and construct a half-panel jackknife bias corrected estimator of $\hat{\theta}_{MG}$ as 
+
+\begin{equation}
+\hat{\theta}_{HP,MG} = 2\hat{\theta}_{MG} - 0.5 \left( \hat{\theta}_{1, MG} + \hat{\theta}_{2,MG}\right),
+(\#eq:mgjkhp)
+\end{equation}
+
+where $\hat{\theta}_{1, MG}$ and $\hat{\theta}_{2, MG}$ are the estimators constructed by splitting the panel over the time dimension. The variance of the mean-group half-panel jackknife estimator in \@ref(eq:mgjkhp) is then given by
+
+\begin{equation}
+\begin{aligned}
+var \left( \hat{\theta}_{HP,MG} \right) =& 4 var \left( \hat{\theta}_{MG} \right)  + 0.25 \left( var \left( \hat{\theta}_{1,MG}\right) + var \left(\hat{\theta}_{2,MG}\right) + cov\left( \hat{\theta}_{1,MG},\hat{\theta}_{2,MG}\right) + cov\left( \hat{\theta}_{2,MG},\hat{\theta}_{1,MG}\right)\right)\\
+& \quad - cov\left(\hat{\theta}_{MG},\hat{\theta}_{1,MG}\right) - cov\left(\hat{\theta}_{MG},\hat{\theta}_{2,MG}\right) -cov\left(\hat{\theta}_{1,MG},\hat{\theta}_{MG}\right) - cov\left(\hat{\theta}_{2,MG},\hat{\theta}_{MG}\right).
+\end{aligned}
+(\#eq:varmgjkhp)
+\end{equation}
+
+I restrict the sample to countries with more than 30 non-missing observations for GDP growth, which results in a sample of 130 countries. As in the original paper, I estimate the model in \@ref(eq:eq1kahnrhet) both when $\omega_i$ is restricted to be equal to $0$ and when left unrestricted (a model without and with common correlated effects, respectively).
+
+The function `hpj.het` returns the country-by-country half-panel jackknife estimators of the short-run coefficients for all countries. In the next chunk of code, I provide an example of the implementation of this function for $MA = 30$. The results for other adaptation windows can be reproduced in a similar way.
+
+```{r, label = het.coeff, results = 'hide'}
+library(dplyr)
+
+pdata.kahn.tab4.ma30 <- pdata.kahn.tab5.ma30 %>% dplyr::filter(!is.na(growth)) %>%
+                                      group_by(isocode) %>%
+                                        dplyr::filter(sum(!is.na(growth)) > 30) %>% 
+                                            ungroup() %>%
+                                              dplyr::filter(!is.na(l1growth)) %>% 
+                                              plm::pdata.frame(index=c("iso", "year"))
+
+## Heterogenous estimation without CCE
+formula.ardl.tab4.nocce <- as.formula(growth ~ l1growth + dtempabs + l1dtempabs + l2dtempabs + l3dtempabs + l4dtempabs)
+
+het.coeff.nocce <- hpj.het(formula.ardl.tab4.nocce, pdata.kahn.tab4.ma30)
+
+## Heterogenous estimation with CCE
+formula.ardl.tab4.cce <- as.formula(growth ~ l1growth + dtempabs + l1dtempabs + l2dtempabs + l3dtempabs + l4dtempabs + l1gg)
+
+het.coeff.cce <- hpj.het(formula.ardl.tab4.cce, pdata.kahn.tab4.ma30[!is.na(pdata.kahn.tab4.ma30$l1gg),])
+```
+
+Then the function `lr_het_coef` can be used to compute the long-run bias corrected estimate from equation \@ref(eq:mgjkhp), and its standard error from equation \@ref(eq:varmgjkhp).
+
+Table \@ref(tab:lrcoefbygroup) reports the results of this exercise. The results correspond to those in the original paper with two exceptions. Standard errors differ from those reported in the paper, and I did not manage to replicate the effects for cold and hot countries.
+
+```{r lrcoefbygroup, tab.cap = "Table 4 in @kahn2021 with $m = 30$.", echo = FALSE}
+data("country.vars",package="KMNPRY.2021")
+
+all.ma30.nocce <- lr_het_coef(het.coeff.nocce)
+cold.ma30.nocce <- lr_het_coef(het.coeff.nocce,subgroup = country.vars$iso[country.vars$cold == 1])
+hot.ma30.nocce <- lr_het_coef(het.coeff.nocce,subgroup = country.vars$iso[country.vars$cold == 0])
+poor.ma30.nocce <- lr_het_coef(het.coeff.nocce,subgroup = country.vars$iso[country.vars$poor == 1])
+rich.ma30.nocce <- lr_het_coef(het.coeff.nocce,subgroup = country.vars$iso[country.vars$aeg20em == 1])
+
+all.ma30.cce <- lr_het_coef(het.coeff.cce)
+cold.ma30.cce <- lr_het_coef(het.coeff.cce,country.vars$iso[country.vars$cold == 1])
+hot.ma30.cce <- lr_het_coef(het.coeff.cce,country.vars$iso[country.vars$cold == 0])
+poor.ma30.cce <- lr_het_coef(het.coeff.cce,country.vars$iso[country.vars$poor == 1])
+rich.ma30.cce <- lr_het_coef(het.coeff.cce,country.vars$iso[country.vars$aeg20em == 1])
+
+mytab <- rbind(c("\\hat{\\theta}",formatC(c(all.ma30.nocce$lr_coeff,all.ma30.cce$lr_coeff),digits = 3,format = "f")),
+               c("",paste0("(",formatC(c(all.ma30.nocce$std_err,all.ma30.cce$std_err),digits = 3,format = "f"),")")),
+               c("\\hat{\\theta}",formatC(c(cold.ma30.nocce$lr_coeff,cold.ma30.cce$lr_coeff),digits = 3,format = "f")),
+               c("",paste0("(",formatC(c(cold.ma30.nocce$std_err,cold.ma30.cce$std_err),digits = 3,format = "f"),")")),
+               c("\\hat{\\theta}",formatC(c(hot.ma30.nocce$lr_coeff,hot.ma30.cce$lr_coeff),digits = 3,format = "f")),
+               c("",paste0("(",formatC(c(hot.ma30.nocce$std_err,hot.ma30.cce$std_err),digits = 3,format = "f"),")")),
+               c("\\hat{\\theta}",formatC(c(poor.ma30.nocce$lr_coeff,poor.ma30.cce$lr_coeff),digits = 3,format = "f")),
+               c("",paste0("(",formatC(c(poor.ma30.nocce$std_err,poor.ma30.cce$std_err),digits = 3,format = "f"),")")),
+               c("\\hat{\\theta}",formatC(c(rich.ma30.nocce$lr_coeff,rich.ma30.cce$lr_coeff),digits = 3,format = "f")),
+               c("",paste0("(",formatC(c(rich.ma30.nocce$std_err,rich.ma30.cce$std_err),digits = 3,format = "f"),")")))
+               
+colnames(mytab) <- c("~","No CCE","CCE")
+
+knitr::kable(mytab,digits=3,align = c("l", rep("c", 2)), escape = FALSE, format = "html") |>
+  kableExtra::group_rows("All countries", 1, 2, hline_after = TRUE) |>
+  kableExtra::group_rows("Cold (Average temperature below 33rd percentile)", 3, 4, hline_after = TRUE) |>
+  kableExtra::group_rows("Temperate or hot (Average temperature above 33rd percentile)", 5, 6, hline_after = TRUE) |>
+  kableExtra::group_rows("Poor (Low income developing countries)", 7, 8, hline_after = TRUE) |>
+  kableExtra::group_rows("Rich (Advanced Economies and G20 Emerging Markets)", 9, 10 , hline_after = TRUE) |>
+     kableExtra::kable_styling(font_size = 10) 
+```
 ## References

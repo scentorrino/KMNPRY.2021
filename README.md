@@ -1,7 +1,5 @@
 # KMNPRY.2021
 
-![CRAN downloads](https://cranlogs.r-pkg.org/badges/grand-total/np)
-
 This is the R package `KMNPRY.2021' written and maintained by Samuele Centorrino (scentorrino@proton.me), which aims at reproducing the results of the paper by Kahn, Mohaddes, Ng, Pesaran, Raissi, and Yang, 2021, Energy Economics (https://www.sciencedirect.com/science/article/pii/S0140988321004898)
 
 ## Installation

@@ -1,0 +1,1810 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta name="author" content="Samuele Centorrino scentorrino@proton.me" />
+
+<meta name="date" content="2025-07-16" />
+
+<title>Climate Effects on GDP Growth (Kahn et al., 2021, Energy Economics)</title>
+
+<script>$(document).ready(function(){
+    if (typeof $('[data-toggle="tooltip"]').tooltip === 'function') {
+        $('[data-toggle="tooltip"]').tooltip();
+    }
+    if ($('[data-toggle="popover"]').popover === 'function') {
+        $('[data-toggle="popover"]').popover();
+    }
+});
+</script>
+<style type="text/css">
+.lightable-minimal {
+border-collapse: separate;
+border-spacing: 16px 1px;
+width: 100%;
+margin-bottom: 10px;
+}
+.lightable-minimal td {
+margin-left: 5px;
+margin-right: 5px;
+}
+.lightable-minimal th {
+margin-left: 5px;
+margin-right: 5px;
+}
+.lightable-minimal thead tr:last-child th {
+border-bottom: 2px solid #00000050;
+empty-cells: hide;
+}
+.lightable-minimal tbody tr:first-child td {
+padding-top: 0.5em;
+}
+.lightable-minimal.lightable-hover tbody tr:hover {
+background-color: #f5f5f5;
+}
+.lightable-minimal.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-classic {
+border-top: 0.16em solid #111111;
+border-bottom: 0.16em solid #111111;
+width: 100%;
+margin-bottom: 10px;
+margin: 10px 5px;
+}
+.lightable-classic tfoot tr td {
+border: 0;
+}
+.lightable-classic tfoot tr:first-child td {
+border-top: 0.14em solid #111111;
+}
+.lightable-classic caption {
+color: #222222;
+}
+.lightable-classic td {
+padding-left: 5px;
+padding-right: 5px;
+color: #222222;
+}
+.lightable-classic th {
+padding-left: 5px;
+padding-right: 5px;
+font-weight: normal;
+color: #222222;
+}
+.lightable-classic thead tr:last-child th {
+border-bottom: 0.10em solid #111111;
+}
+.lightable-classic.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-classic.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-classic-2 {
+border-top: 3px double #111111;
+border-bottom: 3px double #111111;
+width: 100%;
+margin-bottom: 10px;
+}
+.lightable-classic-2 tfoot tr td {
+border: 0;
+}
+.lightable-classic-2 tfoot tr:first-child td {
+border-top: 3px double #111111;
+}
+.lightable-classic-2 caption {
+color: #222222;
+}
+.lightable-classic-2 td {
+padding-left: 5px;
+padding-right: 5px;
+color: #222222;
+}
+.lightable-classic-2 th {
+padding-left: 5px;
+padding-right: 5px;
+font-weight: normal;
+color: #222222;
+}
+.lightable-classic-2 tbody tr:last-child td {
+border-bottom: 3px double #111111;
+}
+.lightable-classic-2 thead tr:last-child th {
+border-bottom: 1px solid #111111;
+}
+.lightable-classic-2.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-classic-2.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-material {
+min-width: 100%;
+white-space: nowrap;
+table-layout: fixed;
+font-family: Roboto, sans-serif;
+border: 1px solid #EEE;
+border-collapse: collapse;
+margin-bottom: 10px;
+}
+.lightable-material tfoot tr td {
+border: 0;
+}
+.lightable-material tfoot tr:first-child td {
+border-top: 1px solid #EEE;
+}
+.lightable-material th {
+height: 56px;
+padding-left: 16px;
+padding-right: 16px;
+}
+.lightable-material td {
+height: 52px;
+padding-left: 16px;
+padding-right: 16px;
+border-top: 1px solid #eeeeee;
+}
+.lightable-material.lightable-hover tbody tr:hover {
+background-color: #f5f5f5;
+}
+.lightable-material.lightable-striped tbody tr:nth-child(even) {
+background-color: #f5f5f5;
+}
+.lightable-material.lightable-striped tbody td {
+border: 0;
+}
+.lightable-material.lightable-striped thead tr:last-child th {
+border-bottom: 1px solid #ddd;
+}
+.lightable-material-dark {
+min-width: 100%;
+white-space: nowrap;
+table-layout: fixed;
+font-family: Roboto, sans-serif;
+border: 1px solid #FFFFFF12;
+border-collapse: collapse;
+margin-bottom: 10px;
+background-color: #363640;
+}
+.lightable-material-dark tfoot tr td {
+border: 0;
+}
+.lightable-material-dark tfoot tr:first-child td {
+border-top: 1px solid #FFFFFF12;
+}
+.lightable-material-dark th {
+height: 56px;
+padding-left: 16px;
+padding-right: 16px;
+color: #FFFFFF60;
+}
+.lightable-material-dark td {
+height: 52px;
+padding-left: 16px;
+padding-right: 16px;
+color: #FFFFFF;
+border-top: 1px solid #FFFFFF12;
+}
+.lightable-material-dark.lightable-hover tbody tr:hover {
+background-color: #FFFFFF12;
+}
+.lightable-material-dark.lightable-striped tbody tr:nth-child(even) {
+background-color: #FFFFFF12;
+}
+.lightable-material-dark.lightable-striped tbody td {
+border: 0;
+}
+.lightable-material-dark.lightable-striped thead tr:last-child th {
+border-bottom: 1px solid #FFFFFF12;
+}
+.lightable-paper {
+width: 100%;
+margin-bottom: 10px;
+color: #444;
+}
+.lightable-paper tfoot tr td {
+border: 0;
+}
+.lightable-paper tfoot tr:first-child td {
+border-top: 1px solid #00000020;
+}
+.lightable-paper thead tr:last-child th {
+color: #666;
+vertical-align: bottom;
+border-bottom: 1px solid #00000020;
+line-height: 1.15em;
+padding: 10px 5px;
+}
+.lightable-paper td {
+vertical-align: middle;
+border-bottom: 1px solid #00000010;
+line-height: 1.15em;
+padding: 7px 5px;
+}
+.lightable-paper.lightable-hover tbody tr:hover {
+background-color: #F9EEC1;
+}
+.lightable-paper.lightable-striped tbody tr:nth-child(even) {
+background-color: #00000008;
+}
+.lightable-paper.lightable-striped tbody td {
+border: 0;
+}
+</style>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+<style type="text/css">
+
+div.csl-bib-body { }
+div.csl-entry {
+clear: both;
+margin-bottom: 0em;
+}
+.hanging div.csl-entry {
+margin-left:2em;
+text-indent:-2em;
+}
+div.csl-left-margin {
+min-width:2em;
+float:left;
+}
+div.csl-right-inline {
+margin-left:2em;
+padding-left:1em;
+}
+div.csl-indent {
+margin-left: 2em;
+}
+</style>
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Climate Effects on GDP Growth (Kahn et al., 2021, Energy Economics)</h1>
+<h4 class="author">Samuele Centorrino <a href="mailto:scentorrino@proton.me" class="email">scentorrino@proton.me</a></h4>
+<h4 class="date">2025-07-16</h4>
+
+
+
+<div id="sec:kahn" class="section level2 unnumbered">
+<h2>Methodology in <span class="citation">Kahn et al. (2021)</span></h2>
+<p><span class="citation">Kahn et al. (2021)</span> start from the following ARDL specification (see <span class="citation">Kahn et al. (2021)</span>, p. 4 eq 1)</p>
+<p><span class="math display" id="eq:eq1kahn">\[\begin{equation}
+\Delta y_{i,t} = a_i + \sum_{\ell = 1}^p \varphi_\ell \Delta y_{i,t-\ell} + \sum_{\ell = 0}^p \beta_\ell \Delta \tilde{x}_{i,t-\ell}(m) + \varepsilon_{i,t},
+\tag{1}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(i\)</span> is a country, <span class="math inline">\(t\)</span> is time, <span class="math inline">\(y_{i,s}\)</span> is the logarithm of real GDP for country <span class="math inline">\(i\)</span> and time <span class="math inline">\(s\)</span>, <span class="math inline">\(\tilde{x}_{i,s}\)</span> is a vector of regressors which include climate variables such as temperature and precipitations, taken in deviations from their historical averages<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, <span class="math inline">\(a_i\)</span> is a country fixed effect, and finally <span class="math inline">\(\Delta\)</span> is used to denote first-differences. <span class="math inline">\(\Delta y_{i,t}\)</span> is thus equal to the growth rate of country <span class="math inline">\(i\)</span> at time <span class="math inline">\(t\)</span> which, for simplicity, I denote <span class="math inline">\(r_{i,t}\)</span>. Thus,</p>
+<p><span class="math display" id="eq:eq1kahnr">\[\begin{equation}
+r_{i,t} = a_i + \sum_{\ell = 1}^p \varphi_\ell r_{i,t-\ell} + \sum_{\ell = 0}^p \beta_\ell \Delta \tilde{x}_{i,t-\ell}(m) + \varepsilon_{i,t}.
+\tag{2}
+\end{equation}\]</span></p>
+<p>The ARDL model in equation <a href="#eq:eq1kahnr">(2)</a> can be estimated ``as is”. However, it is possible that the growth rate, <span class="math inline">\(r_{i,t}\)</span> and <span class="math inline">\(\Delta \tilde{x}_{i,t-\ell}(m)\)</span> are cointegrated (e.g., a long-run equilibrium relationships between these variables may exist), and therefore one can estimate an <strong>error correction version of this model</strong> . That is,</p>
+<p><span class="math display" id="eq:errcorr">\[\begin{equation}
+\begin{aligned}
+r_{i,t} =&amp; a_i + \sum_{\ell = 1}^p \varphi_\ell r_{i,t-\ell} + \sum_{\ell = 0}^p\Delta \tilde{x}_{i,t-\ell}(m)\beta_\ell  + \varepsilon_{i,t}\\
+\Delta r_{i,t}=&amp; a_i - r_{i,t -1} + \sum_{\ell = 1}^p \varphi_\ell r_{i,t-\ell} + \sum_{\ell = 0}^p \Delta \tilde{x}_{i,t-\ell}(m)\beta_\ell  + \varepsilon_{i,t}\\
+\Delta r_{i,t}=&amp; a_i - \underbrace{ \left( 1 - \sum_{\ell = 1}^p \varphi_\ell \right)}_{\phi} r_{i,t -1} + \sum_{\ell = 1}^{p-1} \gamma_{\ell} \Delta r_{i,t-\ell} + \sum_{\ell = 0}^p \Delta \tilde{x}_{i,t-\ell}(m)\beta_\ell  + \varepsilon_{i,t}\\
+\Delta r_{i,t}=&amp; a_i - \phi \left( r_{i,t -1} - \Delta \tilde{x}_{i,t}(m)\underbrace{\frac{\sum_{\ell = 0}^p\beta_\ell}{\phi}}_{\theta} \right)  + \sum_{\ell = 1}^{p-1} \gamma_{\ell} \Delta r_{i,t-\ell} \\
+&amp; \quad - \sum_{\ell = 1}^p \left(\Delta \tilde{x}_{i,t}(m) -  \Delta \tilde{x}_{i,t-\ell}(m)\right) \beta_\ell  + \varepsilon_{i,t}\\
+\Delta r_{i,t}=&amp; a_i - \phi \left( r_{i,t -1} - \Delta \tilde{x}_{i,t}(m)\theta \right) + \sum_{\ell = 1}^{p-1} \gamma_{\ell} \Delta r_{i,t-\ell} + \sum_{\ell = 0}^{p-1} \Delta^2 \tilde{x}_{i,t-\ell}(m)\delta_\ell  + \varepsilon_{i,t},
+\end{aligned}
+\tag{3}
+\end{equation}\]</span>
+where</p>
+<ul>
+<li><span class="math inline">\(\gamma_\ell = -(\varphi_{\ell+1} + \dots + \varphi_p)\)</span>, for <span class="math inline">\(\ell = 1,\dots,p-1\)</span>;</li>
+<li><span class="math inline">\(\delta_\ell = -(\beta_{\ell+1} + \dots + \beta_p)\)</span>,</li>
+</ul>
+<p>and <span class="math inline">\(\Delta^2\)</span> denotes the second order difference of <span class="math inline">\(\tilde{x}\)</span>. In this formulation of the model, the coefficients of interest are <span class="math inline">\(\phi\)</span> and <span class="math inline">\(\theta\)</span>, where <span class="math inline">\(\theta\)</span> captures the long-run effect of the climate variables on the growth rate, and <span class="math inline">\(\phi\)</span> captures the speed of adjustment to this long-run relationship. It is also worth noticing that the fixed effect <span class="math inline">\(a_i\)</span> is still included in the regression, and that therefore this model cannot be directly estimated by Ordinary Least Squares (OLS).</p>
+</div>
+<div id="empres" class="section level2 unnumbered">
+<h2>Replication of Empirical Results</h2>
+<p>I first show that using the model in equation <a href="#eq:errcorr">(3)</a>, i.e. the error correction version of the model, is numerically equivalent to estimate directly the model in equation <a href="#eq:eq1kahnr">(2)</a>, i.e., what I refer to as the <em>reduced-form</em> model.</p>
+<p>Results are reported in Tables <a href="#tab:tab1kahn">1</a> and <a href="#tab:kahnreduced">2</a> for the half-panel jackknife fixed effect estimator (HPJ-FE) of <span class="citation">Chudik, Pesaran, and Yang (2018)</span>. Notice that the values of the coefficients are numerically equivalent, but there is some discrepancy in the standard errors. This may due to the fact that Stata and R use different methods to compute standard errors.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> However, the values obtained are not too far apart and do not change the qualitative conclusions of the paper.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="do">#### 3 DATABASES VARY ACCORDING TO THE </span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="do">#### THE VALUE OF m USED (20,30,40)</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a><span class="do">## MA 20 </span></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;data.kahn.ma20&quot;</span>,<span class="at">package=</span><span class="st">&quot;KMNPRY.2021&quot;</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a>pdata.kahn.ma20 <span class="ot">&lt;-</span> <span class="fu">pdata.frame</span>(data.kahn.ma20, <span class="at">index=</span><span class="fu">c</span>(<span class="st">&quot;isocode&quot;</span>, <span class="st">&quot;year&quot;</span>))  </span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="do">## MA 30 </span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;data.kahn.ma30&quot;</span>,<span class="at">package=</span><span class="st">&quot;KMNPRY.2021&quot;</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a>pdata.kahn.ma30 <span class="ot">&lt;-</span> <span class="fu">pdata.frame</span>(data.kahn.ma30, <span class="at">index=</span><span class="fu">c</span>(<span class="st">&quot;isocode&quot;</span>, <span class="st">&quot;year&quot;</span>)) </span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="do">## MA 40 </span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;data.kahn.ma40&quot;</span>,<span class="at">package=</span><span class="st">&quot;KMNPRY.2021&quot;</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a>pdata.kahn.ma40 <span class="ot">&lt;-</span> <span class="fu">pdata.frame</span>(data.kahn.ma40, <span class="at">index=</span><span class="fu">c</span>(<span class="st">&quot;isocode&quot;</span>, <span class="st">&quot;year&quot;</span>)) </span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>formula.ardl.tab11 <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(dgrowth <span class="sc">~</span> l1growth <span class="sc">+</span> dtemp_plus <span class="sc">+</span> dtemp_minus <span class="sc">+</span> dprecip_plus <span class="sc">+</span> dprecip_minus <span class="sc">+</span> l1dgrowth <span class="sc">+</span>  l2dgrowth <span class="sc">+</span> l3dgrowth <span class="sc">+</span> d2temp_plus <span class="sc">+</span>  l1d2temp_plus <span class="sc">+</span> l2d2temp_plus <span class="sc">+</span> l3d2temp_plus <span class="sc">+</span> d2temp_minus <span class="sc">+</span> l1d2temp_minus <span class="sc">+</span> l2d2temp_minus <span class="sc">+</span> l3d2temp_minus <span class="sc">+</span> d2precip_plus <span class="sc">+</span> l1d2precip_plus <span class="sc">+</span> l2d2precip_plus <span class="sc">+</span> l3d2precip_plus <span class="sc">+</span> d2precip_minus <span class="sc">+</span> l1d2precip_minus <span class="sc">+</span> l2d2precip_minus <span class="sc">+</span> l3d2precip_minus)</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>hpj.p.tab11.ma20 <span class="ot">&lt;-</span> <span class="fu">hpj.fe</span>(formula.ardl.tab11,pdata.kahn.ma20,<span class="st">&quot;individual&quot;</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a>hpj.p.tab11.ma30 <span class="ot">&lt;-</span> <span class="fu">hpj.fe</span>(formula.ardl.tab11,pdata.kahn.ma30,<span class="st">&quot;individual&quot;</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a>hpj.p.tab11.ma40 <span class="ot">&lt;-</span> <span class="fu">hpj.fe</span>(formula.ardl.tab11,pdata.kahn.ma40,<span class="st">&quot;individual&quot;</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a>tab1spec1.ma20 <span class="ot">&lt;-</span> <span class="fu">ec.coef.se.dm</span>(hpj.p.tab11.ma20)</span>
+<span id="cb2-8"><a href="#cb2-8" tabindex="-1"></a>tab1spec1.ma30 <span class="ot">&lt;-</span> <span class="fu">ec.coef.se.dm</span>(hpj.p.tab11.ma30)</span>
+<span id="cb2-9"><a href="#cb2-9" tabindex="-1"></a>tab1spec1.ma40 <span class="ot">&lt;-</span> <span class="fu">ec.coef.se.dm</span>(hpj.p.tab11.ma40)</span></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a>formula.ardl.tab12 <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(dgrowth <span class="sc">~</span> l1growth <span class="sc">+</span> dtemp_plus <span class="sc">+</span> dtemp_minus <span class="sc">+</span> l1dgrowth <span class="sc">+</span>  l2dgrowth <span class="sc">+</span> l3dgrowth <span class="sc">+</span> d2temp_plus <span class="sc">+</span>  l1d2temp_plus <span class="sc">+</span> l2d2temp_plus <span class="sc">+</span> l3d2temp_plus <span class="sc">+</span> d2temp_minus <span class="sc">+</span> l1d2temp_minus <span class="sc">+</span> l2d2temp_minus <span class="sc">+</span> l3d2temp_minus)</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a>hpj.p.tab12.ma20 <span class="ot">&lt;-</span> <span class="fu">hpj.fe</span>(formula.ardl.tab12,pdata.kahn.ma20,<span class="st">&quot;individual&quot;</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a>hpj.p.tab12.ma30 <span class="ot">&lt;-</span> <span class="fu">hpj.fe</span>(formula.ardl.tab12,pdata.kahn.ma30,<span class="st">&quot;individual&quot;</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a>hpj.p.tab12.ma40 <span class="ot">&lt;-</span> <span class="fu">hpj.fe</span>(formula.ardl.tab12,pdata.kahn.ma40,<span class="st">&quot;individual&quot;</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" tabindex="-1"></a>tab1spec2.ma20 <span class="ot">&lt;-</span> <span class="fu">ec.coef.se.dm</span>(hpj.p.tab12.ma20,<span class="at">numreg =</span> <span class="dv">2</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" tabindex="-1"></a>tab1spec2.ma30 <span class="ot">&lt;-</span> <span class="fu">ec.coef.se.dm</span>(hpj.p.tab12.ma30,<span class="at">numreg =</span> <span class="dv">2</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" tabindex="-1"></a>tab1spec2.ma40 <span class="ot">&lt;-</span> <span class="fu">ec.coef.se.dm</span>(hpj.p.tab12.ma40,<span class="at">numreg =</span> <span class="dv">2</span>)</span></code></pre></div>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:tab1kahn">Table 1: </span>HPJ-FE Estimator with <span class="math inline">\(m = \lbrace 20,30,40 \rbrace\)</span> in Table 1 of <span class="citation">Kahn et al. (2021)</span> (error correction form, standard errors in brackets).
+</caption>
+<thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Specification 1
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Specification 2
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+MA 20
+</th>
+<th style="text-align:center;">
+MA 30
+</th>
+<th style="text-align:center;">
+MA 40
+</th>
+<th style="text-align:center;">
+MA 20
+</th>
+<th style="text-align:center;">
+MA 30
+</th>
+<th style="text-align:center;">
+MA 40
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\hat{\theta}_{\Delta \tilde{T}^{+}_{it}(m)}\)</span>
+</td>
+<td style="text-align:left;">
+-0.566 (0.21)
+</td>
+<td style="text-align:center;">
+-0.894(0.292)
+</td>
+<td style="text-align:center;">
+-1.072(0.373)
+</td>
+<td style="text-align:center;">
+-0.572 (0.210)
+</td>
+<td style="text-align:center;">
+-0.908 (0.291)
+</td>
+<td style="text-align:center;">
+-1.105 (0.372)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\hat{\theta}_{\Delta \tilde{T}^{-}_{it}(m)}\)</span>
+</td>
+<td style="text-align:left;">
+-0.5 (0.252)
+</td>
+<td style="text-align:center;">
+-0.783(0.386)
+</td>
+<td style="text-align:center;">
+-0.909(0.492)
+</td>
+<td style="text-align:center;">
+-0.508 (0.252)
+</td>
+<td style="text-align:center;">
+-0.806 (0.386)
+</td>
+<td style="text-align:center;">
+-0.954 (0.492)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\hat{\theta}_{\Delta \tilde{P}^{+}_{it}(m)}\)</span>
+</td>
+<td style="text-align:left;">
+-0.031 (0.361)
+</td>
+<td style="text-align:center;">
+0.122(0.571)
+</td>
+<td style="text-align:center;">
+-0.005(0.781)
+</td>
+<td style="text-align:center;">
+~ (~)
+</td>
+<td style="text-align:center;">
+~ (~)
+</td>
+<td style="text-align:center;">
+~ (~)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\hat{\theta}_{\Delta \tilde{P}^{-}_{it}(m)}\)</span>
+</td>
+<td style="text-align:left;">
+-0.175 (0.429)
+</td>
+<td style="text-align:center;">
+-0.32(0.661)
+</td>
+<td style="text-align:center;">
+-0.595(0.856)
+</td>
+<td style="text-align:center;">
+~ (~)
+</td>
+<td style="text-align:center;">
+~ (~)
+</td>
+<td style="text-align:center;">
+~ (~)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\hat{\phi}\)</span>
+</td>
+<td style="text-align:left;">
+0.603 (0.046)
+</td>
+<td style="text-align:center;">
+0.603(0.046)
+</td>
+<td style="text-align:center;">
+0.602(0.046)
+</td>
+<td style="text-align:center;">
+0.604 (0.046)
+</td>
+<td style="text-align:center;">
+0.604 (0.046)
+</td>
+<td style="text-align:center;">
+0.604 (0.046)
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="do">## ESTIMATE ONLY THE HALF-PANEL JACKNIFE BUT NOT THE FIXED EFFECT</span></span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a>pdata.kahn.ma20 <span class="ot">&lt;-</span> <span class="fu">createlagvars</span>(pdata.kahn.ma20, <span class="at">ma =</span> <span class="dv">20</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a>pdata.kahn.ma30 <span class="ot">&lt;-</span> <span class="fu">createlagvars</span>(pdata.kahn.ma30, <span class="at">ma =</span> <span class="dv">30</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a>pdata.kahn.ma40 <span class="ot">&lt;-</span> <span class="fu">createlagvars</span>(pdata.kahn.ma40, <span class="at">ma =</span> <span class="dv">40</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="do">## LOAD DATA</span></span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a>pdata.kahn.tab5.ma20 <span class="ot">&lt;-</span> <span class="fu">subset</span>(pdata.kahn.ma20,<span class="fu">as.numeric</span>(pdata.kahn.ma20<span class="sc">$</span>year) <span class="sc">&gt;=</span> <span class="dv">61</span>) </span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a>pdata.kahn.tab5.ma30 <span class="ot">&lt;-</span> <span class="fu">subset</span>(pdata.kahn.ma30,<span class="fu">as.numeric</span>(pdata.kahn.ma30<span class="sc">$</span>year) <span class="sc">&gt;=</span> <span class="dv">61</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a>pdata.kahn.tab5.ma40 <span class="ot">&lt;-</span> <span class="fu">subset</span>(pdata.kahn.ma40,<span class="fu">as.numeric</span>(pdata.kahn.ma40<span class="sc">$</span>year) <span class="sc">&gt;=</span> <span class="dv">61</span>) </span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="co"># DIRECT SPECIFICATION 1</span></span>
+<span id="cb4-13"><a href="#cb4-13" tabindex="-1"></a>formula.ardl.tab11dir <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(growth <span class="sc">~</span> l1growth <span class="sc">+</span> l2growth <span class="sc">+</span> l3growth <span class="sc">+</span> l4growth <span class="sc">+</span> dtemp_plus <span class="sc">+</span> l1dtemp_plus <span class="sc">+</span> l2dtemp_plus <span class="sc">+</span> l3dtemp_plus <span class="sc">+</span> l4dtemp_plus <span class="sc">+</span> dtemp_minus <span class="sc">+</span> l1dtemp_minus <span class="sc">+</span> l2dtemp_minus <span class="sc">+</span> l3dtemp_minus <span class="sc">+</span> l4dtemp_minus <span class="sc">+</span> dprecip_plus <span class="sc">+</span> l1dprecip_plus <span class="sc">+</span> l2dprecip_plus <span class="sc">+</span> l3dprecip_plus <span class="sc">+</span> l4dprecip_plus <span class="sc">+</span> dprecip_minus <span class="sc">+</span> l1dprecip_minus <span class="sc">+</span> l2dprecip_minus <span class="sc">+</span> l3dprecip_minus <span class="sc">+</span> l4dprecip_minus)</span>
+<span id="cb4-14"><a href="#cb4-14" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" tabindex="-1"></a>hpj.p.tab11dir.ma20 <span class="ot">&lt;-</span> <span class="fu">hpj.fe</span>(formula.ardl.tab11dir,pdata.kahn.ma20,<span class="st">&quot;individual&quot;</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" tabindex="-1"></a>hpj.p.tab11dir.ma30 <span class="ot">&lt;-</span> <span class="fu">hpj.fe</span>(formula.ardl.tab11dir,pdata.kahn.ma30,<span class="st">&quot;individual&quot;</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" tabindex="-1"></a>hpj.p.tab11dir.ma40 <span class="ot">&lt;-</span> <span class="fu">hpj.fe</span>(formula.ardl.tab11dir,pdata.kahn.ma40,<span class="st">&quot;individual&quot;</span>)</span>
+<span id="cb4-18"><a href="#cb4-18" tabindex="-1"></a></span>
+<span id="cb4-19"><a href="#cb4-19" tabindex="-1"></a>tab2spec1.ma20 <span class="ot">&lt;-</span> <span class="fu">sr.coef.se.dm</span>(hpj.p.tab11dir.ma20)</span>
+<span id="cb4-20"><a href="#cb4-20" tabindex="-1"></a>tab2spec1.ma30 <span class="ot">&lt;-</span> <span class="fu">sr.coef.se.dm</span>(hpj.p.tab11dir.ma30)</span>
+<span id="cb4-21"><a href="#cb4-21" tabindex="-1"></a>tab2spec1.ma40 <span class="ot">&lt;-</span> <span class="fu">sr.coef.se.dm</span>(hpj.p.tab11dir.ma40)</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a>formula.ardl.tab12dir <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(growth <span class="sc">~</span> l1growth <span class="sc">+</span> l2growth <span class="sc">+</span> l3growth <span class="sc">+</span> l4growth <span class="sc">+</span> dtemp_plus <span class="sc">+</span> l1dtemp_plus <span class="sc">+</span> l2dtemp_plus <span class="sc">+</span> l3dtemp_plus <span class="sc">+</span> dtemp_minus <span class="sc">+</span> l4dtemp_plus <span class="sc">+</span> l1dtemp_minus <span class="sc">+</span> l2dtemp_minus <span class="sc">+</span> l3dtemp_minus <span class="sc">+</span> l4dtemp_minus)</span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a>hpj.p.tab12dir.ma20 <span class="ot">&lt;-</span> <span class="fu">hpj.fe</span>(formula.ardl.tab12dir,pdata.kahn.ma20,<span class="st">&quot;individual&quot;</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a>hpj.p.tab12dir.ma30 <span class="ot">&lt;-</span> <span class="fu">hpj.fe</span>(formula.ardl.tab12dir,pdata.kahn.ma30,<span class="st">&quot;individual&quot;</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a>hpj.p.tab12dir.ma40 <span class="ot">&lt;-</span> <span class="fu">hpj.fe</span>(formula.ardl.tab12dir,pdata.kahn.ma40,<span class="st">&quot;individual&quot;</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a>tab2spec2.ma20 <span class="ot">&lt;-</span> <span class="fu">sr.coef.se.dm</span>(hpj.p.tab12dir.ma20,<span class="at">numreg =</span> <span class="dv">2</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a>tab2spec2.ma30 <span class="ot">&lt;-</span> <span class="fu">sr.coef.se.dm</span>(hpj.p.tab12dir.ma30,<span class="at">numreg =</span> <span class="dv">2</span>)</span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a>tab2spec2.ma40 <span class="ot">&lt;-</span> <span class="fu">sr.coef.se.dm</span>(hpj.p.tab12dir.ma40,<span class="at">numreg =</span> <span class="dv">2</span>)</span></code></pre></div>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:kahnreduced">Table 2: </span>HPJ-FE Estimator with <span class="math inline">\(m = \lbrace 20,30,40 \rbrace\)</span> in Table 1 of <span class="citation">Kahn et al. (2021)</span> (reduced form, standard errors in brackets).
+</caption>
+<thead>
+<tr>
+<th style="empty-cells: hide;border-bottom:hidden;" colspan="1">
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Specification 1
+</div>
+</th>
+<th style="border-bottom:hidden;padding-bottom:0; padding-left:3px;padding-right:3px;text-align: center; " colspan="3">
+<div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Specification 2
+</div>
+</th>
+</tr>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+MA 20
+</th>
+<th style="text-align:center;">
+MA 30
+</th>
+<th style="text-align:center;">
+MA 40
+</th>
+<th style="text-align:center;">
+MA 20
+</th>
+<th style="text-align:center;">
+MA 30
+</th>
+<th style="text-align:center;">
+MA 40
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\hat{\theta}_{\Delta \tilde{T}^{+}_{it}(m)}\)</span>
+</td>
+<td style="text-align:left;">
+-0.566 (0.204)
+</td>
+<td style="text-align:center;">
+-0.894(0.281)
+</td>
+<td style="text-align:center;">
+-0.894(0.361)
+</td>
+<td style="text-align:center;">
+-0.492 (0.205)
+</td>
+<td style="text-align:center;">
+-0.788 (0.285)
+</td>
+<td style="text-align:center;">
+-0.941 (0.365)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\hat{\theta}_{\Delta \tilde{T}^{-}_{it}(m)}\)</span>
+</td>
+<td style="text-align:left;">
+-0.5 (0.246)
+</td>
+<td style="text-align:center;">
+-0.783(0.374)
+</td>
+<td style="text-align:center;">
+-0.783(0.478)
+</td>
+<td style="text-align:center;">
+-0.589 (0.232)
+</td>
+<td style="text-align:center;">
+-0.926 (0.348)
+</td>
+<td style="text-align:center;">
+-1.117 (0.442)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\hat{\theta}_{\Delta \tilde{P}^{+}_{it}(m)}\)</span>
+</td>
+<td style="text-align:left;">
+-0.031 (0.358)
+</td>
+<td style="text-align:center;">
+0.122(0.56)
+</td>
+<td style="text-align:center;">
+0.122(0.771)
+</td>
+<td style="text-align:center;">
+~ (~)
+</td>
+<td style="text-align:center;">
+~ (~)
+</td>
+<td style="text-align:center;">
+~ (~)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\hat{\theta}_{\Delta \tilde{P}^{-}_{it}(m)}\)</span>
+</td>
+<td style="text-align:left;">
+-0.175 (0.431)
+</td>
+<td style="text-align:center;">
+-0.32(0.659)
+</td>
+<td style="text-align:center;">
+-0.32(0.857)
+</td>
+<td style="text-align:center;">
+~ (~)
+</td>
+<td style="text-align:center;">
+~ (~)
+</td>
+<td style="text-align:center;">
+~ (~)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span class="math inline">\(\hat{\phi}\)</span>
+</td>
+<td style="text-align:left;">
+0.603 (0.046)
+</td>
+<td style="text-align:center;">
+0.603(0.046)
+</td>
+<td style="text-align:center;">
+0.603(0.046)
+</td>
+<td style="text-align:center;">
+0.604 (0.046)
+</td>
+<td style="text-align:center;">
+0.604 (0.046)
+</td>
+<td style="text-align:center;">
+0.604 (0.046)
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="counterres" class="section level2 unnumbered">
+<h2>Replication of Counterfactual Results</h2>
+<p>This section reproduces the results of Section 3 in <span class="citation">Kahn et al. (2021)</span>. I do so by estimating a ARDL model as in equation <a href="#eq:eq1kahnr">(2)</a>, where the absolute difference between the temperature and its historical mean is the only exogenous regressor. The historical mean is estimated by using windows of size <span class="math inline">\(m = \lbrace 20,30,40 \rbrace\)</span>.</p>
+<p>Coefficients from this estimation for <span class="math inline">\(m = 30\)</span> are reported in Table <a href="#tab:kahnmainres">3</a>, which should be compared to Table 5 in <span class="citation">Kahn et al. (2021)</span>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="do">## ADD SCENARIOS FROM KAHN ET AL. (2021)</span></span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;data.kahn.scen&quot;</span>,<span class="at">package =</span> <span class="st">&quot;KMNPRY.2021&quot;</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;datappp&quot;</span>,<span class="at">package =</span> <span class="st">&quot;KMNPRY.2021&quot;</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>data.kahn.scen <span class="ot">&lt;-</span> <span class="fu">merge</span>(datappp,data.kahn.scen,<span class="at">by =</span> <span class="st">&quot;iso&quot;</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>pdata.kahn.tab5.ma20 <span class="ot">&lt;-</span> <span class="fu">pdata.frame</span>(<span class="fu">merge</span>(pdata.kahn.tab5.ma20,data.kahn.scen,<span class="at">by =</span> <span class="st">&quot;iso&quot;</span>),</span>
+<span id="cb6-8"><a href="#cb6-8" tabindex="-1"></a>                                    <span class="at">index=</span><span class="fu">c</span>(<span class="st">&quot;isocode&quot;</span>, <span class="st">&quot;year&quot;</span>))</span>
+<span id="cb6-9"><a href="#cb6-9" tabindex="-1"></a>pdata.kahn.tab5.ma30 <span class="ot">&lt;-</span> <span class="fu">pdata.frame</span>(<span class="fu">merge</span>(pdata.kahn.tab5.ma30,data.kahn.scen,<span class="at">by =</span> <span class="st">&quot;iso&quot;</span>),</span>
+<span id="cb6-10"><a href="#cb6-10" tabindex="-1"></a>                                    <span class="at">index=</span><span class="fu">c</span>(<span class="st">&quot;isocode&quot;</span>, <span class="st">&quot;year&quot;</span>))</span>
+<span id="cb6-11"><a href="#cb6-11" tabindex="-1"></a>pdata.kahn.tab5.ma40 <span class="ot">&lt;-</span> <span class="fu">pdata.frame</span>(<span class="fu">merge</span>(pdata.kahn.tab5.ma40,data.kahn.scen,<span class="at">by =</span> <span class="st">&quot;iso&quot;</span>),</span>
+<span id="cb6-12"><a href="#cb6-12" tabindex="-1"></a>                                    <span class="at">index=</span><span class="fu">c</span>(<span class="st">&quot;isocode&quot;</span>, <span class="st">&quot;year&quot;</span>))</span>
+<span id="cb6-13"><a href="#cb6-13" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" tabindex="-1"></a>formula.ardl <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(growth <span class="sc">~</span> l1growth <span class="sc">+</span> l2growth <span class="sc">+</span> l3growth <span class="sc">+</span> l4growth <span class="sc">+</span></span>
+<span id="cb6-15"><a href="#cb6-15" tabindex="-1"></a>                            dtempabs <span class="sc">+</span> l1dtempabs <span class="sc">+</span> l2dtempabs <span class="sc">+</span> l3dtempabs <span class="sc">+</span> l4dtempabs)</span>
+<span id="cb6-16"><a href="#cb6-16" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" tabindex="-1"></a>hpj.p.<span class="fl">1.</span>ma20 <span class="ot">&lt;-</span> <span class="fu">hpj.fe</span>(formula.ardl,pdata.kahn.tab5.ma20,<span class="st">&quot;individual&quot;</span>)</span>
+<span id="cb6-18"><a href="#cb6-18" tabindex="-1"></a>hpj.p.<span class="fl">1.</span>ma30 <span class="ot">&lt;-</span> <span class="fu">hpj.fe</span>(formula.ardl,pdata.kahn.tab5.ma30,<span class="st">&quot;individual&quot;</span>)</span>
+<span id="cb6-19"><a href="#cb6-19" tabindex="-1"></a>hpj.p.<span class="fl">1.</span>ma40 <span class="ot">&lt;-</span> <span class="fu">hpj.fe</span>(formula.ardl,pdata.kahn.tab5.ma40,<span class="st">&quot;individual&quot;</span>)</span></code></pre></div>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:kahnmainres">Table 3: </span>Table 5 in <span class="citation">Kahn et al. (2021)</span>.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+<span class="math inline">\(\hat{\varphi}_1\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\hat{\varphi}_2\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\hat{\varphi}_3\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\hat{\varphi}_4\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\hat{\beta}_0\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\hat{\beta}_1\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\hat{\beta}_2\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\hat{\beta}_3\)</span>
+</th>
+<th style="text-align:center;">
+<span class="math inline">\(\hat{\beta}_4\)</span>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Coefficient
+</td>
+<td style="text-align:left;">
+0.2643
+</td>
+<td style="text-align:center;">
+0.0785
+</td>
+<td style="text-align:center;">
+0.0547
+</td>
+<td style="text-align:center;">
+-0.0016
+</td>
+<td style="text-align:center;">
+-0.0038
+</td>
+<td style="text-align:center;">
+-0.0056
+</td>
+<td style="text-align:center;">
+-0.0084
+</td>
+<td style="text-align:center;">
+-0.0090
+</td>
+<td style="text-align:center;">
+-0.0060
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Std. Err.
+</td>
+<td style="text-align:left;">
+0.0497
+</td>
+<td style="text-align:center;">
+0.0270
+</td>
+<td style="text-align:center;">
+0.0221
+</td>
+<td style="text-align:center;">
+0.0329
+</td>
+<td style="text-align:center;">
+0.0021
+</td>
+<td style="text-align:center;">
+0.0029
+</td>
+<td style="text-align:center;">
+0.0031
+</td>
+<td style="text-align:center;">
+0.0026
+</td>
+<td style="text-align:center;">
+0.0021
+</td>
+</tr>
+</tbody>
+</table>
+<p>I further proceed to obtain the expected losses in GPD by country for a given scenario about the expected evolution of temperatures around their historical mean.</p>
+<p>To do so, I first rewrite equation <a href="#eq:eq1kahnr">(2)</a> in the following form</p>
+<p><span class="math display" id="eq:eq1kahnr2">\[\begin{equation}
+\varphi(L) r_{it} = a_i + \beta(L) \Delta x_{it}(m) + \varepsilon_{it},
+\tag{4}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\Delta x_{it}(m) = \vert T_{it} - T^\ast_{it-1}(m)\vert\)</span>,
+<span class="math display">\[\begin{align*}
+\varphi(L) =&amp; 1 - \sum_{\ell = 1}^4 \varphi_\ell L^\ell \\
+\beta(L)=&amp; \sum_{\ell = 0}^4 \beta_\ell L^\ell,
+\end{align*}\]</span>
+and <span class="math inline">\(L\)</span> is the lag operator. That is,
+<span class="math display">\[
+r_{it} = \varphi(1)^{-1} a_i + \psi(L) \Delta x_{it}(m) + \vartheta(L)\varepsilon_{it},
+\]</span>
+where <span class="math inline">\(\vartheta(L) = \sum_{\ell=0}^\infty \vartheta_\ell L^\ell\)</span>, and
+<span class="math display">\[
+\psi(L) = \varphi(L)^{-1} \beta(L) = \sum_{\ell=0}^\infty \psi_\ell L^\ell.
+\]</span>
+Obtaining an estimator of <span class="math inline">\(\psi\)</span> allows us to forecast the expected value of GDP growth <span class="math inline">\(h\)</span> periods ahead, for a given sequence of observed temperatures (in absolute deviations from their historical mean) between <span class="math inline">\(T\)</span> and <span class="math inline">\(T+h\)</span>.</p>
+<p>In <span class="citation">Kahn et al. (2021)</span>, the authors consider that temperature follows a model with a linear trend plus noise. Under an additional assumption that the noise is normally distributed, they derive the expected change in temperature between time <span class="math inline">\(T\)</span> and time <span class="math inline">\(T + h\)</span> in closed form, and use it to predict the expected loss in GDP for several scenarios. In particular, they have</p>
+<p><span class="math display">\[\begin{equation}
+\begin{aligned}
+T_{i, T + j} =&amp; a_{Ti} + b_{Ti,j} (T + j) + v_{Ti,T+j}, \text{ for } j = 1,2,\dots \\
+v_{Ti,t} \sim &amp; N\left( 0, \sigma^2_{Ti}\right)\\
+E  \vert T_{i, T + j} - T^\ast_{i, T+ j-1}(m)\vert =&amp; \mu_{Ti,j}\left[ \Phi \left( \frac{\mu_{Ti,j}}{\omega_{Ti}}\right) -
+\Phi\left( -\frac{\mu_{Ti,j}}{\omega_{Ti}}\right)\right] + 2 \omega_{Ti}\phi\left( \frac{\mu_{Ti,j}}{\omega_{Ti}}\right),
+\end{aligned}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\mu_{Ti,j} = b_{Ti,j} (m+1)/2\)</span>, <span class="math inline">\(\omega^2_{Ti}= \sigma^2_{Ti} (1 + 1/m)\)</span>, and <span class="math inline">\(\{\phi,\Phi\}\)</span> are the pdf and cdf of a standard normal distribution.</p>
+<p>Let <span class="math inline">\(g_{Ti}(m,b_{Ti,j},\sigma_{Ti}) = E  \vert T_{i, T + j} - T^\ast_{i, T+ j-1}(m)\vert\)</span>, the change in the log real GDP per-capita of country <span class="math inline">\(i\)</span> over the horizon <span class="math inline">\(h\)</span>, is given by</p>
+<p><span class="math display">\[\begin{equation}
+\Delta_{h}(d_i,m) = \sum_{j = 1}^h \psi_{h-j} \left( g_{Ti}(m,b^0_{Ti} + jd_i,\sigma^0_{Ti})  - g_{Ti}(m,b^0_{Ti},\sigma^0_{Ti})\right),
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(b^0_{Ti}\)</span> and <span class="math inline">\(\sigma^0_{Ti}\)</span> are the trend and the standard deviation of the error term estimated using observations from years 1960-2014.</p>
+<p><span class="citation">Kahn et al. (2021)</span> consider the uncertainty coming from the estimation of <span class="math inline">\(\psi\)</span>, and provide confidence intervals for these parameters. However, they do not provide forecast intervals for the expected loss in GDP. <span class="math inline">\(\hat{\psi}\)</span> is a nonlinear transformation of <span class="math inline">\(\lbrace \hat{\varphi},\hat{\beta} \rbrace\)</span>, so that <em>standard</em> asymptotic confidence intervals based on asymptotic normality of the estimator are hard to derive in closed form. In order to obtain confidence intervals, I bootstrap the panel with respect to its cross sectional dimension using a dynamic wild bootstrap to allow for serial dependence between countries (<span class="citation">Shao (2010)</span>, and <span class="citation">Gao, Pen, and Yan (2022)</span>). The first <span class="math inline">\(20\)</span> values of <span class="math inline">\(\hat{\psi}\)</span> with their <span class="math inline">\(95\%\)</span> confidence intervals are given in Figure <a href="#fig:fig5kahn">1</a>, which mimics very closely Figure 5 in the original paper.</p>
+<p>I present here an example with <span class="math inline">\(m = 30\)</span> about how to invoke the function to obtain <span class="math inline">\(95\%\)</span> bootstrap confidence intervals with <span class="math inline">\(B = 499\)</span> replications.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="do">## SET PARAMETERS FOR BOOTSTRAP</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="dv">499</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>psihat.b.ma30 <span class="ot">&lt;-</span> <span class="fu">psicoef.b</span>(pdata.kahn.tab5.ma30, formula.ardl, </span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a>                           hpj.p.<span class="fl">1.</span>ma30<span class="sc">$</span>coeff,hpj.p.<span class="fl">1.</span>ma30<span class="sc">$</span>resid, <span class="at">B =</span> B)</span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a>psihat025.ma30 <span class="ot">&lt;-</span> <span class="fu">apply</span>(psihat.b.ma30<span class="sc">$</span>psihat,<span class="dv">1</span>,<span class="cf">function</span>(x) <span class="fu">quantile</span>(x,<span class="fl">0.025</span>))</span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a>psihat975.ma30 <span class="ot">&lt;-</span> <span class="fu">apply</span>(psihat.b.ma30<span class="sc">$</span>psihat,<span class="dv">1</span>,<span class="cf">function</span>(x) <span class="fu">quantile</span>(x,<span class="fl">0.975</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>barCenters <span class="ot">&lt;-</span> <span class="fu">barplot</span>(psihat.ma30[<span class="dv">1</span><span class="sc">:</span><span class="dv">21</span>],<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">21</span>),<span class="at">ylim =</span> <span class="fu">rev</span>(<span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.02</span>,<span class="fl">0.001</span>)),<span class="at">col =</span> <span class="st">&quot;blue4&quot;</span>,<span class="at">cex.axis =</span> <span class="fl">0.5</span>,<span class="at">legend =</span> <span class="fu">expression</span>(psi[i]))</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a><span class="fu">segments</span>(barCenters, psihat025.ma30[<span class="dv">1</span><span class="sc">:</span><span class="dv">21</span>], barCenters,</span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>            psihat975.ma30[<span class="dv">1</span><span class="sc">:</span><span class="dv">21</span>], <span class="at">lwd =</span> <span class="dv">2</span>,<span class="at">col =</span> <span class="st">&quot;red4&quot;</span> )</span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a><span class="fu">arrows</span>(barCenters, psihat025.ma30[<span class="dv">1</span><span class="sc">:</span><span class="dv">21</span>], barCenters,</span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>            psihat975.ma30[<span class="dv">1</span><span class="sc">:</span><span class="dv">21</span>], <span class="at">lwd =</span> <span class="dv">2</span>, <span class="at">angle =</span> <span class="dv">90</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" tabindex="-1"></a>            <span class="at">code =</span> <span class="dv">3</span>, <span class="at">length =</span> <span class="fl">0.1</span>,<span class="at">col =</span> <span class="st">&quot;red4&quot;</span>)</span></code></pre></div>
+<div class="figure"><span style="display:block;" id="fig:fig5kahn"></span>
+<img role="img" aria-label="$\psi_j$ for $j = 0,1,2,\dots,20$, and their bootstrapped $95\%$ confidence intervals." src="data:image/png;base64,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" alt="$\psi_j$ for $j = 0,1,2,\dots,20$, and their bootstrapped $95\%$ confidence intervals." />
+<p class="caption">
+Figure 1: <span class="math inline">\(\psi_j\)</span> for <span class="math inline">\(j = 0,1,2,\dots,20\)</span>, and their bootstrapped <span class="math inline">\(95\%\)</span> confidence intervals.
+</p>
+</div>
+<p>In Table <a href="#tab:tab6kahn">4</a>, I report the expected loss of GDP growth (in percentage) for the two scenarios considered by <span class="citation">Kahn et al. (2021)</span>. The <span class="math inline">\(95\%\)</span> confidence intervals are constructed via the bootstrapped values of <span class="math inline">\(\hat{\psi}\)</span>.</p>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:tab6kahn">Table 4: </span>Table 6 in <span class="citation">Kahn et al. (2021)</span> with <span class="math inline">\(m = 30\)</span>.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+~
+</th>
+<th style="text-align:center;">
+2030
+</th>
+<th style="text-align:center;">
+2050
+</th>
+<th style="text-align:center;">
+2100
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+World
+</td>
+<td style="text-align:center;font-weight: bold;">
+</td>
+<td style="text-align:center;font-weight: bold;">
+</td>
+<td style="text-align:center;font-weight: bold;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RCP 2.6
+</td>
+<td style="text-align:center;">
+-0.01
+</td>
+<td style="text-align:center;">
+0.11
+</td>
+<td style="text-align:center;">
+1.07
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RCP 8.5
+</td>
+<td style="text-align:center;">
+0.80
+</td>
+<td style="text-align:center;">
+2.51
+</td>
+<td style="text-align:center;">
+7.22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+China
+</td>
+<td style="text-align:center;font-weight: bold;">
+</td>
+<td style="text-align:center;font-weight: bold;">
+</td>
+<td style="text-align:center;font-weight: bold;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RCP 2.6
+</td>
+<td style="text-align:center;">
+-0.45
+</td>
+<td style="text-align:center;">
+-0.80
+</td>
+<td style="text-align:center;">
+0.45
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+[-0.21,0.01]
+</td>
+<td style="text-align:center;">
+[-0.37,0.01]
+</td>
+<td style="text-align:center;">
+[-0.00,0.68]
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RCP 8.5
+</td>
+<td style="text-align:center;">
+0.58
+</td>
+<td style="text-align:center;">
+1.62
+</td>
+<td style="text-align:center;">
+4.35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+[0.27,0.88]
+</td>
+<td style="text-align:center;">
+[0.74,2.38]
+</td>
+<td style="text-align:center;">
+[2.00,6.38]
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+European Union
+</td>
+<td style="text-align:center;font-weight: bold;">
+</td>
+<td style="text-align:center;font-weight: bold;">
+</td>
+<td style="text-align:center;font-weight: bold;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RCP 2.6
+</td>
+<td style="text-align:center;">
+-0.05
+</td>
+<td style="text-align:center;">
+-0.04
+</td>
+<td style="text-align:center;">
+0.45
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+[-0.13,0.03]
+</td>
+<td style="text-align:center;">
+[-0.22,0.15]
+</td>
+<td style="text-align:center;">
+[0.06,0.82]
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RCP 8.5
+</td>
+<td style="text-align:center;">
+0.53
+</td>
+<td style="text-align:center;">
+1.70
+</td>
+<td style="text-align:center;">
+5.25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+[0.24,0.80]
+</td>
+<td style="text-align:center;">
+[0.78,2.51]
+</td>
+<td style="text-align:center;">
+[2.42,7.71]
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+India
+</td>
+<td style="text-align:center;font-weight: bold;">
+</td>
+<td style="text-align:center;font-weight: bold;">
+</td>
+<td style="text-align:center;font-weight: bold;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RCP 2.6
+</td>
+<td style="text-align:center;">
+0.26
+</td>
+<td style="text-align:center;">
+0.81
+</td>
+<td style="text-align:center;">
+2.57
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+[0.12,0.38]
+</td>
+<td style="text-align:center;">
+[0.37,1.20]
+</td>
+<td style="text-align:center;">
+[1.18,3.77]
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RCP 8.5
+</td>
+<td style="text-align:center;">
+1.16
+</td>
+<td style="text-align:center;">
+3.62
+</td>
+<td style="text-align:center;">
+9.90
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+[0.53,1.76]
+</td>
+<td style="text-align:center;">
+[1.67,5.34]
+</td>
+<td style="text-align:center;">
+[4.55,14.52]
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+Russia
+</td>
+<td style="text-align:center;font-weight: bold;">
+</td>
+<td style="text-align:center;font-weight: bold;">
+</td>
+<td style="text-align:center;font-weight: bold;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RCP 2.6
+</td>
+<td style="text-align:center;">
+-0.14
+</td>
+<td style="text-align:center;">
+-0.34
+</td>
+<td style="text-align:center;">
+-0.71
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+[-0.21,-0.06]
+</td>
+<td style="text-align:center;">
+[-0.50,-0.16]
+</td>
+<td style="text-align:center;">
+[-1.03,-0.32]
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RCP 8.5
+</td>
+<td style="text-align:center;">
+1.03
+</td>
+<td style="text-align:center;">
+3.08
+</td>
+<td style="text-align:center;">
+8.93
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+[0.47,1.55]
+</td>
+<td style="text-align:center;">
+[1.42,4.54]
+</td>
+<td style="text-align:center;">
+[4.11,13.10]
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-weight: bold;">
+United States
+</td>
+<td style="text-align:center;font-weight: bold;">
+</td>
+<td style="text-align:center;font-weight: bold;">
+</td>
+<td style="text-align:center;font-weight: bold;">
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RCP 2.6
+</td>
+<td style="text-align:center;">
+0.20
+</td>
+<td style="text-align:center;">
+0.60
+</td>
+<td style="text-align:center;">
+1.88
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+[0.09,0.30]
+</td>
+<td style="text-align:center;">
+[0.28,0.88]
+</td>
+<td style="text-align:center;">
+[0.87,2.76]
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+RCP 8.5
+</td>
+<td style="text-align:center;">
+1.20
+</td>
+<td style="text-align:center;">
+3.77
+</td>
+<td style="text-align:center;">
+10.52
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:center;">
+[0.55,1.80]
+</td>
+<td style="text-align:center;">
+[1.74,5.56]
+</td>
+<td style="text-align:center;">
+[4.84,15.42]
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="heteffts" class="section level2 unnumbered">
+<h2>Heterogenous effects</h2>
+<p>I finally replicate the results in Table 4 of <span class="citation">Kahn et al. (2021)</span>, where they consider estimation of the model in <a href="#eq:eq1kahnr">(2)</a> with heterogenous coefficients and common correlated effects. In particular, they estimate the model</p>
+<p><span class="math display" id="eq:eq1kahnrhet">\[\begin{equation}
+r_{i,t} = a_i + \varphi_{1,i} r_{i,t-\ell} + \sum_{\ell = 0}^p \beta_{\ell,i} \Delta \tilde{x}_{i,t-\ell}(m) + \omega_i r_{w,t-1} + \varepsilon_{i,t},
+\tag{5}
+\end{equation}\]</span>
+with <span class="math inline">\(i = 1,\dots,n\)</span>. In equation <a href="#eq:eq1kahnrhet">(5)</a>, <span class="math inline">\(p = 4\)</span>, and I only take one lag of GDP growth as explanatory variable to reduce the number of parameters; <span class="math inline">\(r_{w,t-1}\)</span> denotes the world GDP growth, and controls for common correlated effects among all countries. All coefficients are taken to be heterogeneous across countries. This model is estimated by OLS country-by-country. The mean-group estimator of the long-run effect of temperature on GDP growth is defined as</p>
+<p><span class="math display">\[\begin{equation}
+\hat{\theta}_{MG} = \frac{\sum_{\ell = 1}^p \frac{1}{n} \sum_{i = 1}^n \hat{\beta}_{\ell,i}}{1 - \frac{1}{n}\sum_{i = 1}^n \hat{\varphi}_{1,i}}.
+\end{equation}\]</span></p>
+<p>It is known that this estimator can be biased for small values of T, so the authors follow <span class="citation">Chudik, Pesaran, and Yang (2018)</span>, and construct a half-panel jackknife bias corrected estimator of <span class="math inline">\(\hat{\theta}_{MG}\)</span> as</p>
+<p><span class="math display" id="eq:mgjkhp">\[\begin{equation}
+\hat{\theta}_{HP,MG} = 2\hat{\theta}_{MG} - 0.5 \left( \hat{\theta}_{1, MG} + \hat{\theta}_{2,MG}\right),
+\tag{6}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\hat{\theta}_{1, MG}\)</span> and <span class="math inline">\(\hat{\theta}_{2, MG}\)</span> are the estimators constructed by splitting the panel over the time dimension. The variance of the mean-group half-panel jackknife estimator in <a href="#eq:mgjkhp">(6)</a> is then given by</p>
+<p><span class="math display" id="eq:varmgjkhp">\[\begin{equation}
+\begin{aligned}
+var \left( \hat{\theta}_{HP,MG} \right) =&amp; 4 var \left( \hat{\theta}_{MG} \right)  + 0.25 \left( var \left( \hat{\theta}_{1,MG}\right) + var \left(\hat{\theta}_{2,MG}\right) + cov\left( \hat{\theta}_{1,MG},\hat{\theta}_{2,MG}\right) + cov\left( \hat{\theta}_{2,MG},\hat{\theta}_{1,MG}\right)\right)\\
+&amp; \quad - cov\left(\hat{\theta}_{MG},\hat{\theta}_{1,MG}\right) - cov\left(\hat{\theta}_{MG},\hat{\theta}_{2,MG}\right) -cov\left(\hat{\theta}_{1,MG},\hat{\theta}_{MG}\right) - cov\left(\hat{\theta}_{2,MG},\hat{\theta}_{MG}\right).
+\end{aligned}
+\tag{7}
+\end{equation}\]</span></p>
+<p>I restrict the sample to countries with more than 30 non-missing observations for GDP growth, which results in a sample of 130 countries. As in the original paper, I estimate the model in <a href="#eq:eq1kahnrhet">(5)</a> both when <span class="math inline">\(\omega_i\)</span> is restricted to be equal to <span class="math inline">\(0\)</span> and when left unrestricted (a model without and with common correlated effects, respectively).</p>
+<p>The function <code>hpj.het</code> returns the country-by-country half-panel jackknife estimators of the short-run coefficients for all countries. In the next chunk of code, I provide an example of the implementation of this function for <span class="math inline">\(MA = 30\)</span>. The results for other adaptation windows can be reproduced in a similar way.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>pdata.kahn.tab4.ma30 <span class="ot">&lt;-</span> pdata.kahn.tab5.ma30 <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(growth)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>                                      <span class="fu">group_by</span>(isocode) <span class="sc">%&gt;%</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>                                        dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(growth)) <span class="sc">&gt;</span> <span class="dv">30</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a>                                            <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a>                                              dplyr<span class="sc">::</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(l1growth)) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-8"><a href="#cb9-8" tabindex="-1"></a>                                              plm<span class="sc">::</span><span class="fu">pdata.frame</span>(<span class="at">index=</span><span class="fu">c</span>(<span class="st">&quot;iso&quot;</span>, <span class="st">&quot;year&quot;</span>))</span>
+<span id="cb9-9"><a href="#cb9-9" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" tabindex="-1"></a><span class="do">## Heterogenous estimation without CCE</span></span>
+<span id="cb9-11"><a href="#cb9-11" tabindex="-1"></a>formula.ardl.tab4.nocce <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(growth <span class="sc">~</span> l1growth <span class="sc">+</span> dtempabs <span class="sc">+</span> l1dtempabs <span class="sc">+</span> l2dtempabs <span class="sc">+</span> l3dtempabs <span class="sc">+</span> l4dtempabs)</span>
+<span id="cb9-12"><a href="#cb9-12" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" tabindex="-1"></a>het.coeff.nocce <span class="ot">&lt;-</span> <span class="fu">hpj.het</span>(formula.ardl.tab4.nocce, pdata.kahn.tab4.ma30)</span>
+<span id="cb9-14"><a href="#cb9-14" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" tabindex="-1"></a><span class="do">## Heterogenous estimation with CCE</span></span>
+<span id="cb9-16"><a href="#cb9-16" tabindex="-1"></a>formula.ardl.tab4.cce <span class="ot">&lt;-</span> <span class="fu">as.formula</span>(growth <span class="sc">~</span> l1growth <span class="sc">+</span> dtempabs <span class="sc">+</span> l1dtempabs <span class="sc">+</span> l2dtempabs <span class="sc">+</span> l3dtempabs <span class="sc">+</span> l4dtempabs <span class="sc">+</span> l1gg)</span>
+<span id="cb9-17"><a href="#cb9-17" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" tabindex="-1"></a>het.coeff.cce <span class="ot">&lt;-</span> <span class="fu">hpj.het</span>(formula.ardl.tab4.cce, pdata.kahn.tab4.ma30[<span class="sc">!</span><span class="fu">is.na</span>(pdata.kahn.tab4.ma30<span class="sc">$</span>l1gg),])</span></code></pre></div>
+<p>Then the function <code>lr_het_coef</code> can be used to compute the long-run bias corrected estimate from equation <a href="#eq:mgjkhp">(6)</a>, and its standard error from equation <a href="#eq:varmgjkhp">(7)</a>.</p>
+<p>Table <a href="#tab:lrcoefbygroup">5</a> reports the results of this exercise. The results correspond to those in the original paper with two exceptions. Standard errors differ from those reported in the paper, and I did not manage to replicate the effects for cold and hot countries.</p>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:lrcoefbygroup">Table 5: </span>Table 4 in <span class="citation">Kahn et al. (2021)</span> with <span class="math inline">\(m = 30\)</span>.
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+~
+</th>
+<th style="text-align:center;">
+No CCE
+</th>
+<th style="text-align:center;">
+CCE
+</th>
+</tr>
+</thead>
+<tbody>
+<tr grouplength="2">
+<td colspan="3" style="border-bottom: 1px solid;">
+<strong>All countries</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+
+</td>
+<td style="text-align:center;">
+-0.487
+</td>
+<td style="text-align:center;">
+-0.918
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+</td>
+<td style="text-align:center;">
+(0.367)
+</td>
+<td style="text-align:center;">
+(0.393)
+</td>
+</tr>
+<tr grouplength="2">
+<td colspan="3" style="border-bottom: 1px solid;">
+<strong>Cold (Average temperature below 33rd percentile)</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+
+</td>
+<td style="text-align:center;">
+-0.298
+</td>
+<td style="text-align:center;">
+-0.270
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+</td>
+<td style="text-align:center;">
+(0.287)
+</td>
+<td style="text-align:center;">
+(0.325)
+</td>
+</tr>
+<tr grouplength="2">
+<td colspan="3" style="border-bottom: 1px solid;">
+<strong>Temperate or hot (Average temperature above 33rd percentile)</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+
+</td>
+<td style="text-align:center;">
+-0.532
+</td>
+<td style="text-align:center;">
+-1.064
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+</td>
+<td style="text-align:center;">
+(0.451)
+</td>
+<td style="text-align:center;">
+(0.476)
+</td>
+</tr>
+<tr grouplength="2">
+<td colspan="3" style="border-bottom: 1px solid;">
+<strong>Poor (Low income developing countries)</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+
+</td>
+<td style="text-align:center;">
+-0.759
+</td>
+<td style="text-align:center;">
+-1.463
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+</td>
+<td style="text-align:center;">
+(0.570)
+</td>
+<td style="text-align:center;">
+(0.604)
+</td>
+</tr>
+<tr grouplength="2">
+<td colspan="3" style="border-bottom: 1px solid;">
+<strong>Rich (Advanced Economies and G20 Emerging Markets)</strong>
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+
+</td>
+<td style="text-align:center;">
+-0.849
+</td>
+<td style="text-align:center;">
+-1.003
+</td>
+</tr>
+<tr>
+<td style="text-align:left;padding-left: 2em;" indentlevel="1">
+</td>
+<td style="text-align:center;">
+(0.520)
+</td>
+<td style="text-align:center;">
+(0.583)
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="references" class="section level2 unnumbered">
+<h2>References</h2>
+<div id="refs" class="references csl-bib-body hanging-indent" entry-spacing="0">
+<div id="ref-chudik2018" class="csl-entry">
+Chudik, Alexander, M. Hashem Pesaran, and Jui-Chung Yang. 2018. <span>“Half-Panel Jackknife Fixed-Effects Estimation of Linear Panels with Weakly Exogenous Regressors.”</span> <em>Journal of Applied Econometrics</em> 33 (6): 816–36. https://doi.org/<a href="https://doi.org/10.1002/jae.2623">https://doi.org/10.1002/jae.2623</a>.
+</div>
+<div id="ref-gao2022" class="csl-entry">
+Gao, Jiti, Bing Pen, and Yayi Yan. 2022. <span>“A Simple Bootstrap Method for Panel Data Inferences.”</span> <em>Monash University, Department of Econometrics and Business Statistics WP Series</em>. <a href="https://www.monash.edu/business/ebs/research/publications/ebs/wp7-2022.pdf">https://www.monash.edu/business/ebs/research/publications/ebs/wp7-2022.pdf</a>.
+</div>
+<div id="ref-kahn2021" class="csl-entry">
+Kahn, Matthew E., Kamiar Mohaddes, Ryan N. C. Ng, M. Hashem Pesaran, Mehdi Raissi, and Jui-Chung Yang. 2021. <span>“Long-Term Macroeconomic Effects of Climate Change: A Cross-Country Analysis.”</span> <em>Energy Economics</em> 104: 105624. https://doi.org/<a href="https://doi.org/10.1016/j.eneco.2021.105624">https://doi.org/10.1016/j.eneco.2021.105624</a>.
+</div>
+<div id="ref-shao2010" class="csl-entry">
+Shao, Xiaofeng. 2010. <span>“The Dependent Wild Bootstrap.”</span> <em>Journal of the American Statistical Association</em> 105 (489): 218–35. <a href="https://doi.org/10.1198/jasa.2009.tm08744">https://doi.org/10.1198/jasa.2009.tm08744</a>.
+</div>
+</div>
+</div>
+<div class="footnotes footnotes-end-of-document">
+<hr />
+<ol>
+<li id="fn1"><p>A more detailed technical justification for this choice is given in Appendix A.1 of <span class="citation">Kahn et al. (2021)</span><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>An in-depth discussion about this point is beyond the scope of this note. A simple search on the internet reveals the difficulties in replicating Stata standard errors into R<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

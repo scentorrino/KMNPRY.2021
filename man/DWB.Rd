@@ -2,7 +2,7 @@
 % Please edit documentation in R/DWB.R
 \name{DWB}
 \alias{DWB}
-\title{Dynamic Wild Bootstrap Function}
+\title{Dependent Wild Bootstrap}
 \usage{
 DWB(y)
 }
@@ -13,7 +13,7 @@ DWB(y)
 A numeric vector of bootstrapped values.
 }
 \description{
-This function performs dynamic wild bootstrap on the input data using
+This function performs dependent wild bootstrap on the input data using
 the approach outlined in Gao et al. It utilizes a Bartlett kernel and
 computes the necessary adjustments for the bootstrap procedure.
 }

@@ -15,8 +15,8 @@ standard errors. Default to 2.}
 }
 \value{
 A list containing:
-\item{lr.coef}{A vector of log-ratio coefficients.}
-\item{lr.coef.se}{A vector of standard errors for the log-ratio coefficients.}
+\item{lr.coef}{A vector of long-run coefficients.}
+\item{lr.coef.se}{A vector of standard errors for the long-run coefficients.}
 }
 \description{
 This function calculates the long run coefficients of an ARDL and their standard errors

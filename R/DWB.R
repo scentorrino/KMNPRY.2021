@@ -1,6 +1,6 @@
-#' Dynamic Wild Bootstrap Function
+#' Dependent Wild Bootstrap
 #'
-#' This function performs dynamic wild bootstrap on the input data using
+#' This function performs dependent wild bootstrap on the input data using
 #' the approach outlined in Gao et al. It utilizes a Bartlett kernel and
 #' computes the necessary adjustments for the bootstrap procedure.
 #'

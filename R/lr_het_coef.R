@@ -85,6 +85,8 @@ lr_het_coef <- function(het.coeff, subgroup = NULL, ma = 30, p = 1, q = 4) {
     het.coeff$all_coeff$panel.2 <- het.coeff$all_coeff$panel.2[,colnames(het.coeff$all_coeff$panel.2) %in% subgroup]
   }
   
+  n <- ncol(het.coeff$hpj_coeff)
+  
   # Extract objects 
   phihatbc  <- sum(apply(matrix(het.coeff$hpj_coeff[2:(p + 1),],nrow = p, ncol = ncol(het.coeff$hpj_coeff)),1,mean))
   betahatbc <- ((ma+1)/2)*sum(apply(het.coeff$hpj_coeff[(p + 2):(p+q+2),],1,mean))
@@ -105,14 +107,14 @@ lr_het_coef <- function(het.coeff, subgroup = NULL, ma = 30, p = 1, q = 4) {
   cov.all.2<- vcov[c(1:totsize),c((2*totsize+1):(3*totsize))]
   cov.1.2  <- vcov[c((totsize+1):(2*totsize)),c((2*totsize+1):(3*totsize))]
   
-  D <- matrix(c(thetahatbc/(1 - phihatbc),rep(1/(1-phihatbc),5)),ncol = 1)
+  D <- matrix(c(thetahatbc/(1 - phihatbc),((ma+1)/2)*rep(1/(1-phihatbc),5)),ncol = 1)
 
   var.comp <- 4*vcov.all + 0.25*(vcov.1 + vcov.2 + cov.1.2 + t(cov.1.2)) - (cov.all.1 + t(cov.all.1) + cov.all.2 + t(cov.all.2))
 
   # Return coefficients
   tab.coef <- list(
                    "lr_coeff"= thetahatbc, 
-                   "std_err" = sqrt(as.numeric(t(D) %*% var.comp %*% D)),
+                   "std_err" = sqrt(as.numeric(t(D) %*% var.comp %*% D)/n),
                    "vcov"    = var.comp,
                    "jacobian"= D 
                    )

@@ -7,7 +7,7 @@
 #'
 #' @param het.coeff A list containing heterogeneous coefficient estimates with the following structure:
 #'   \describe{
-#'     \item{hpj_coeff}{Matrix of HPJ (Heterogeneous Panel J-estimator) coefficients}
+#'     \item{hpj_coeff}{Matrix of HPJ (half-panel jackknife) coefficients}
 #'     \item{all_coeff}{List containing coefficient matrices from different panel estimations:
 #'       \describe{
 #'         \item{full}{Full panel coefficient matrix}
@@ -107,7 +107,7 @@ lr_het_coef <- function(het.coeff, subgroup = NULL, ma = 30, p = 1, q = 4) {
   cov.all.2<- vcov[c(1:totsize),c((2*totsize+1):(3*totsize))]
   cov.1.2  <- vcov[c((totsize+1):(2*totsize)),c((2*totsize+1):(3*totsize))]
   
-  D <- matrix(c(thetahatbc/(1 - phihatbc),((ma+1)/2)*rep(1/(1-phihatbc),5)),ncol = 1)
+  D <- matrix(c(rep(thetahatbc/(1 - phihatbc)^2,p),((ma+1)/2)*rep(1/(1-phihatbc),q+1)),ncol = 1)
 
   var.comp <- 4*vcov.all + 0.25*(vcov.1 + vcov.2 + cov.1.2 + t(cov.1.2)) - (cov.all.1 + t(cov.all.1) + cov.all.2 + t(cov.all.2))
 

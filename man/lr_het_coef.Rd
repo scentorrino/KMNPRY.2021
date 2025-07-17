@@ -9,7 +9,7 @@ lr_het_coef(het.coeff, subgroup = NULL, ma = 30, p = 1, q = 4)
 \arguments{
 \item{het.coeff}{A list containing heterogeneous coefficient estimates with the following structure:
 \describe{
-\item{hpj_coeff}{Matrix of HPJ (Heterogeneous Panel J-estimator) coefficients}
+\item{hpj_coeff}{Matrix of HPJ (half-panel jackknife) coefficients}
 \item{all_coeff}{List containing coefficient matrices from different panel estimations:
 \describe{
 \item{full}{Full panel coefficient matrix}
